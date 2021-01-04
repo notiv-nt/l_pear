@@ -1,0 +1,162 @@
+.hero
+  position relative
+  overflow hidden
+  display flex
+  align-items center
+  justify-content center
+  padding-top 50px
+  z-index 0
+  position fixed
+  left 0
+  right 0
+  bottom 0
+  height 100vh
+
+  _(padding-bottom, {
+    xs: 180px
+    sm: 240px
+    md: 270px
+    lg: 321px
+    xl: 348px
+    hg: 378px
+  })
+
+  &__container
+    color white
+    // display flex
+    // flex-wrap wrap
+    // align-items center
+    // justify-content center
+    // height 100%
+    text-align center
+
+    opacity 0
+    transform translateY(80px) scale(.98)
+
+    tr(transform, opacity)
+    transition-delay 250ms
+
+    .is-loaded &
+      opacity 1
+      transform none
+
+  &__heading
+    text-align center
+    margin 0
+    font-weight inherit
+    width 100%
+    line-height 1.16
+    margin-bottom 0.38em
+
+    _(font-size, {
+      xs: 40px
+      sm: 50px
+      md: 60px
+      lg: 80px
+      xl: 100px
+    })
+
+  &__heading-small
+    display block
+
+    _(font-size, {
+      xs: 26px
+      sm: 30px
+      md: 35px
+      lg: 40px
+      xl: 45px
+    })
+
+  &__action
+    _(font-size, {
+      xs: 18px
+      sm: 20px
+      lg: 27px
+      xl: 34px
+    })
+
+  &__slider
+    overflow hidden
+    opacity 0
+    transform translateY(100px)
+    position absolute
+    bottom 0
+    left 0
+    right 0
+
+    tr(transform, opacity)
+    transition-delay 500ms
+
+    .is-loaded &
+      transform none
+      opacity 1
+
+    .owl-stage
+      display flex
+      align-items center
+      margin-bottom -15px
+
+    .owl-nav
+      display none
+
+    .owl-item
+      position relative
+
+      img
+
+        +media(from xs)
+          height 180px
+          width 280px
+
+        +media(from sm)
+          height 240px
+          width 380px
+
+        +media(from md)
+          height 270px
+          width 475px
+
+        +media(from lg)
+          height 321px
+          width 565px
+
+        +media(from xl)
+          height 348px
+          width 635px
+
+        +media(from hg)
+          height 378px
+          width 685px
+
+        tr(transform)
+
+      &.is-prev-1 img
+      &.is-prev-2 img
+      &.is-next-1 img
+      &.is-next-2 img
+      &.center img
+        position relative
+
+      &.is-prev-2 img
+      &.is-next-2 img
+        z-index 1
+
+      &.is-prev-1 img
+      &.is-next-1 img
+        z-index 2
+
+      &.center img
+        transform translate(0%, 0%)
+        z-index 3
+
+      &.is-prev-1 img
+        transform translate(45%, 15%)
+
+      &.is-next-1 img
+        transform translate(-45%, 15%)
+
+      &.is-prev-2 img
+        transform translate(70%, 30%)
+
+      &.is-next-2 img
+        transform translate(-70%, 30%)

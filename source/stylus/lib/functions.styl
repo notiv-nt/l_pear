@@ -1,0 +1,42 @@
+_buildTransition(_keys)
+  _out = ''
+
+  _outProperty = ''
+  _outDuration = ''
+  _outDelay = ''
+  _outFunction = $transition-function
+
+  if length(_keys) == 1
+    _outProperty = _keys
+
+  else
+    // take prop
+    for key in _keys
+      if (key == def || key == 'default' || key == 'def') && !(_outProperty == '')
+        _outDuration = $transition-duration
+
+      else if typeof(key) == 'ident' && !_outProperty
+        _outProperty = key
+
+      else if typeof(key) == 'unit' && !_outDuration
+        _outDuration = key
+
+      else if typeof(key) == 'unit' && !_outDelay
+        _outDelay = key
+
+  if !_outDuration || _outDuration == ''
+    _outDuration = $transition-duration
+
+  if _outProperty
+    _out += _outProperty
+
+  if _outDuration
+    _out += ' ' + _outDuration
+
+  if _outDelay
+    _out += ' ' + _outDelay
+
+  if _outFunction
+    _out += ' ' + _outFunction
+
+  return _out

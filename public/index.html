@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>The Pear Template</title>
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+
+</head>
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+
+    <symbol id="svg-action" viewBox="0 0 27 27">
+      <path
+        d="M13.5 0a13.5 13.5 0 1 1 0 27 13.5 13.5 0 0 1 0-27zM2 13.5a11.5 11.5 0 1 0 23 0 11.5 11.5 0 0 0-23 0zm14.67.6l-.46.43-3.34 3.12-.04.04c-.42.4-1.1.4-1.53 0a.97.97 0 0 1 0-1.44l1.26-1.18 1.7-1.59-1.7-1.59-1.26-1.18a.97.97 0 0 1 0-1.43c.42-.4 1.1-.4 1.53 0l.04.03s3.25 2.92 3.92 3.5c.3.4.26.94-.12 1.3zm.12-1.3l-.12-.13c.3.28.3.3.12.14z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-close" viewBox="0 0 357 357">
+      <path d="M357 35.7L321.3 0 178.5 142.8 35.7 0 0 35.7l142.8 142.8L0 321.3 35.7 357l142.8-142.8L321.3 357l35.7-35.7-142.8-142.8z"></path>
+    </symbol>
+
+    <symbol id="svg-diamond" viewBox="0 0 32 32">
+      <path
+        d="M7.89 1.99l2 6.04 4.21-6.04zm16.6 0h-6.43l4.44 5.72zm5.04 7l-3.21-6.15-2.15 6.15zm-26.97 0H8.1L5.97 2.57zm26.7 2h-5.78L18.23 26zm-18.39 0l5.11 15.39 5.38-15.4zm-7.88 0l10.75 14.98-4.98-14.98zm23.1-11c.54 0 1.2.4 1.46.89l4.37 8.35c.25.49.2 1.25-.13 1.7L16.54 31.68a.73.73 0 0 1-.58.33.73.73 0 0 1-.6-.34l-15-20.9a1.77 1.77 0 0 1-.1-1.7L4.61.87c.26-.48.92-.88 1.47-.88h9.85a1 1 0 0 1 .14 0zM16.06 2.67l-4.4 6.32h9.3z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-facebook" viewBox="0 0 96 96">
+      <path
+        d="M72.089.02L59.624 0C45.62 0 36.57 9.285 36.57 23.656v10.907H24.037a1.96 1.96 0 0 0-1.96 1.961v15.803a1.96 1.96 0 0 0 1.96 1.96H36.57v39.876a1.96 1.96 0 0 0 1.96 1.96h16.352a1.96 1.96 0 0 0 1.96-1.96V54.287h14.654a1.96 1.96 0 0 0 1.96-1.96l.006-15.803a1.963 1.963 0 0 0-1.961-1.961H56.842v-9.246c0-4.444 1.059-6.7 6.848-6.7l8.397-.003a1.96 1.96 0 0 0 1.959-1.96V1.98A1.96 1.96 0 0 0 72.089.02z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-flickr" viewBox="0 0 508.52 508.52">
+      <path
+        d="M254.26 0C113.845 0 0 113.845 0 254.26s113.845 254.26 254.26 254.26 254.26-113.845 254.26-254.26C508.52 113.813 394.675 0 254.26 0zm-93.568 317.952c-35.628 0-64.487-28.858-64.487-64.487s28.858-64.487 64.487-64.487 64.487 28.858 64.487 64.487-28.859 64.487-64.487 64.487zm187.803 0c-35.628 0-64.487-28.858-64.487-64.487s28.858-64.487 64.487-64.487 64.487 28.858 64.487 64.487-28.859 64.487-64.487 64.487z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-globe" viewBox="0 0 26 32">
+      <path
+        d="M10.97 28.04c-1.95 0-3.84-.37-5.63-1.1a1 1 0 1 1 .75-1.85 13 13 0 0 0 4.88.95c7.58 0 13.08-5.5 13.08-13.07 0-4.56-2.41-8.7-6.45-11.08A1 1 0 0 1 18.61.17a14.77 14.77 0 0 1 7.44 12.8c0 8.04-5.39 14.06-13.07 14.95v2.09h3.01c.58 0 1.05.44 1.05 1 0 .54-.47 1-1.05 1h-7.9c-.58 0-1.05-.46-1.05-1 0-.56.47-1 1.05-1h2.9v-1.97h-.02zm0-24.03a9.05 9.05 0 0 0-9.02 9.05 9 9 0 0 0 9.02 8.98 9 9 0 0 0 9.01-8.98 9.05 9.05 0 0 0-9.01-9.05s4.97 0 0 0zm0-2c6.08 0 11.01 4.96 11.01 11.05 0 6.08-4.93 10.98-11.01 10.98-6.09 0-11.02-4.9-11.02-10.98 0-6.09 4.93-11.05 11.02-11.05z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-help" viewBox="0 0 32 32">
+      <path
+        d="M16 0a16 16 0 1 1 0 32 16 16 0 0 1 0-32zM2 16c0 .68.06 1.35.15 2h6.11a8.01 8.01 0 0 1 0-4h-6.1c-.1.65-.15 1.32-.15 2zm10-6.92v-6.5A14.02 14.02 0 0 0 2.6 12h6.48c.7-1.21 1.71-2.22 2.92-2.92zm0 20.34v-6.5A8.03 8.03 0 0 1 9.08 20h-6.5A14.02 14.02 0 0 0 12 29.42zm4 .58c.68 0 1.35-.05 2-.14v-6.11a8 8 0 0 1-4 0v6.1c.65.1 1.32.15 2 .15zm13.99-14c0-.68-.05-1.35-.14-2h-6.11a8.01 8.01 0 0 1 0 4h6.1c.1-.65.15-1.32.15-2zM20 2.6v6.5c1.2.7 2.22 1.7 2.92 2.9h6.49A14.02 14.02 0 0 0 20 2.6zm0 20.34v6.49a14.02 14.02 0 0 0 9.41-9.42h-6.49A8.03 8.03 0 0 1 20 22.94zM16 8.02a8 8 0 0 1 2 .25v-6.1a14.1 14.1 0 0 0-4 0v6.1a8 8 0 0 1 2-.25zm-5.99 8a6 6 0 1 0 11.98 0 6 6 0 0 0-11.98 0z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-layers" viewBox="0 0 32 32">
+      <path
+        d="M16.1 17.62a1 1 0 0 1-.48-.12L.78 9.41a1 1 0 0 1 .03-1.77l15-7.54a1 1 0 0 1 .9 0l14.85 7.55a1 1 0 0 1 .02 1.77l-15 8.08a1 1 0 0 1-.48.12zM3.41 8.57l12.7 6.91 12.84-6.92-12.7-6.44zm28.52 7.3a1 1 0 0 1-.52.9l-15 8.08a1 1 0 0 1-.96 0L.6 16.76a1 1 0 0 1 .03-1.77l3.14-1.57 2.14 1.16-2.67 1.34 12.7 6.91 12.84-6.92-2.5-1.27 2.14-1.15 2.97 1.5a1 1 0 0 1 .54.88zm0 7a1 1 0 0 1-.52.9l-15 8.08a1 1 0 0 1-.96 0L.6 23.76a1 1 0 0 1 .03-1.77l2.95-1.36 2.14 1.17-2.48 1.12 12.7 6.91 12.84-6.92-2.35-1.14 2.14-1.16 2.82 1.38a1 1 0 0 1 .54.88z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-linkedin" viewBox="0 0 438 438">
+      <path
+        d="M5.424 145.895H99.64v282.932H5.424zm403.418 25.844c-19.791-21.604-45.967-32.408-78.512-32.408-11.991 0-22.891 1.475-32.695 4.427-9.801 2.95-18.079 7.089-24.838 12.419-6.755 5.33-12.135 10.278-16.129 14.844-3.798 4.337-7.512 9.389-11.136 15.104v-40.232h-93.935l.288 13.706c.193 9.139.288 37.307.288 84.508 0 47.205-.19 108.777-.572 184.722h93.931V270.942c0-9.705 1.041-17.412 3.139-23.127 4-9.712 10.037-17.843 18.131-24.407 8.093-6.572 18.13-9.855 30.125-9.855 16.364 0 28.407 5.662 36.117 16.987 7.707 11.324 11.561 26.98 11.561 46.966V428.82h93.931V266.664c-.007-41.688-9.897-73.328-29.694-94.925zM53.103 9.708c-15.796 0-28.595 4.619-38.4 13.848C4.899 32.787 0 44.441 0 58.529 0 72.42 4.758 84.034 14.275 93.358c9.514 9.325 22.078 13.99 37.685 13.99h.571c15.99 0 28.887-4.661 38.688-13.99 9.801-9.324 14.606-20.934 14.417-34.829-.19-14.087-5.047-25.742-14.561-34.973C81.562 14.323 68.9 9.708 53.103 9.708z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-pinterest" viewBox="0 0 310.05 310.05">
+      <path
+        d="M245.265 31.772C223.923 11.284 194.388 0 162.101 0c-49.32 0-79.654 20.217-96.416 37.176-20.658 20.9-32.504 48.651-32.504 76.139 0 34.513 14.436 61.003 38.611 70.858 1.623.665 3.256 1 4.857 1 5.1 0 9.141-3.337 10.541-8.69.816-3.071 2.707-10.647 3.529-13.936 1.76-6.495.338-9.619-3.5-14.142-6.992-8.273-10.248-18.056-10.248-30.788 0-37.818 28.16-78.011 80.352-78.011 41.412 0 67.137 23.537 67.137 61.425 0 23.909-5.15 46.051-14.504 62.35-6.5 11.325-17.93 24.825-35.477 24.825-7.588 0-14.404-3.117-18.705-8.551-4.063-5.137-5.402-11.773-3.768-18.689 1.846-7.814 4.363-15.965 6.799-23.845 4.443-14.392 8.643-27.985 8.643-38.83 0-18.55-11.404-31.014-28.375-31.014-21.568 0-38.465 21.906-38.465 49.871 0 13.715 3.645 23.973 5.295 27.912-2.717 11.512-18.865 79.953-21.928 92.859-1.771 7.534-12.44 67.039 5.219 71.784 19.841 5.331 37.576-52.623 39.381-59.172 1.463-5.326 6.582-25.465 9.719-37.845 9.578 9.226 25 15.463 40.006 15.463 28.289 0 53.73-12.73 71.637-35.843 17.367-22.418 26.932-53.664 26.932-87.978 0-26.826-11.52-53.272-31.604-72.556z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-play" viewBox="0 0 31 31">
+      <path
+        d="M4 0h.25c7.42 5.22 15.19 9.94 22.67 15.08C19.44 20.46 11.66 25.41 4.33 31h-.28C3.94 20.67 4.02 10.33 4 0m2.01 3.76c-.01 7.79-.04 15.58.02 23.37 5.71-4.06 11.67-7.8 17.2-12.11-5.69-3.83-11.45-7.56-17.22-11.26z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-quote" viewBox="0 0 23 22">
+      <path
+        d="M6.39 0h.79c4.06 7.49.89 16.31-4.73 22H.79c-.51-3.29 2.78-5.41 3.57-8.41 1.76-3.87.3-8.01-1.23-11.67C4.19 1.24 5.28.6 6.39 0zm13.48 0h.51c4.65 7.34 1.04 16.54-4.81 22h-.34c-.31-.5-.94-1.5-1.25-2 4.19-4.97 6.4-11.92 2.62-17.81C17.68 1.43 18.76.7 19.87 0z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-rocket" viewBox="0 0 32 33">
+      <path
+        d="M.98 31.98L0 32l-.02-1.02c0-5.03 1.01-6.08 3.16-7.15.51-.25 1.04-.49 1.61-.93l1.22 1.56c-.73.56-1.4.9-1.94 1.16-1.29.64-1.93 1-2.03 4.38 3.5-.13 3.9-1 4.52-2.3.25-.51.52-1.09.97-1.7l1.48 1.35c-.36.61-.49.92-.7 1.37-1 2.06-1.99 3.26-7.29 3.26zM22 14a4.02 4.02 0 1 1 0-8.03A4.02 4.02 0 0 1 22 14zm0-6.01a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-8.7 24.15a1 1 0 0 1-.97-.77l-1.23-5.15-2.26-2.5c-1.08-1.2-1.76-1.96-2.16-2.46L.71 19.89a1 1 0 0 1-.53-1.63l3.67-3.98a1 1 0 0 1 .75-.33h5.56c.35-.63.76-1.44 1.18-2.3 1.1-2.2 2.36-4.85 3.62-6.32a12.13 12.13 0 0 1 5.1-3.66C25.44-.35 31.04.07 31.04.07c.5.03.9.43.92.93.02.26.38 6.5-1.3 11.01-.71 1.9-1.43 3.19-3.4 4.94-1.4 1.25-4.78 2.83-7.05 4.09-.83.46-1.71.94-2.21 1.25v5.16a1 1 0 0 1-.35.76l-3.7 3.69a1 1 0 0 1-.66.24zM7.93 19.71l4.83 5.36a1 1 0 0 1 .23.44l.9 3.8L16 27v-5.23a1 1 0 0 1 .37-.77c.4-.33 1.33-.83 2.87-1.7 2.06-1.15 5.45-2.73 6.69-3.83a8.84 8.84 0 0 0 2.85-4.14c1.18-3.17 1.25-7.45 1.22-9.3a27 27 0 0 0-9.24 1.52 10.07 10.07 0 0 0-4.28 3.09c-1.1 1.28-2.35 3.92-3.35 5.92a43 43 0 0 1-1.54 2.92 1 1 0 0 1-.85.48h-5.7L2.8 18.33l4.58 1.05a1 1 0 0 1 .55.34z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-search" viewBox="0 0 56.966 56.966">
+      <path
+        d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-search-thin" viewBox="0 0 451 451">
+      <path
+        d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-settings" viewBox="0 0 32 32">
+      <path
+        d="M32 15.08v2c0 1.1-1.05 1.78-2 2l-2.6.65c-.2.6-.44 1.16-.71 1.71l1.39 2.32c.51.83.78 2.05 0 2.83L26.66 28c-.78.78-2.1.64-2.9.09l-2.25-1.44c-.58.3-1.18.56-1.8.76l-.59 2.6c-.17.96-1 1.99-2.1 1.99h-2c-1.1 0-1.79-1.05-2-2l-.64-2.56c-.69-.22-1.34-.5-1.96-.82L8.1 28.09c-.8.55-2.11.7-2.9-.09l-1.4-1.41c-.79-.78-.52-2 0-2.83l1.46-2.44c-.26-.51-.48-1.04-.66-1.6L2 19.08c-.95-.22-2-.9-2-2v-2c0-1.1 1.03-1.94 1.98-2.11l2.57-.57c.19-.6.43-1.17.7-1.72L3.79 8.25c-.52-.83-.78-2.05 0-2.83L5.21 4c.78-.78 2.1-.64 2.9-.09l2.3 1.47c.62-.32 1.27-.6 1.95-.81L13 2c.22-.95.9-2 2-2h2c1.1 0 1.94 1.03 2.1 1.98l.59 2.6c.63.2 1.24.47 1.82.77l2.26-1.44c.8-.55 2.11-.69 2.89.1l1.42 1.4c.78.79.51 2 0 2.84l-1.4 2.3c.3.6.57 1.21.77 1.85l2.57.57c.95.17 1.98 1 1.98 2.1zm-1.98.08c-.04-.07-.21-.2-.44-.24l-3.7-.82-.34-1.1c-.15-.5-.36-1-.63-1.53l-.51-.99 1.98-3.3c.1-.17.16-.34.18-.45l-1.31-1.27a.75.75 0 0 0-.41.14l-3.22 2.06-1.03-.54a9.9 9.9 0 0 0-1.52-.64l-1.09-.35-.84-3.8c-.02-.14-.15-.31-.14-.33h-1.86c-.06.09-.15.25-.2.48l-.91 3.65-1.06.34c-.55.18-1.1.4-1.63.68l-1.02.55-3.36-2.14c-.07-.05-.21-.1-.34-.14L5.31 6.73c.02.1.07.29.2.49l2.02 3.37-.48.98c-.26.51-.45.98-.6 1.43l-.34 1.1-3.77.84c-.14.02-.3.14-.34.14v1.86c.09.06.25.15.48.2l3.68.92.34 1.05c.14.43.32.86.55 1.32l.48.98-2.04 3.41c-.11.18-.16.35-.18.45l1.31 1.28c.13 0 .27-.06.4-.15l3.3-2.1 1.03.55c.53.28 1.08.5 1.63.68l1.06.34.92 3.68c.05.2.13.36.2.45h1.8a.76.76 0 0 0 .21-.42l.83-3.72 1.09-.35c.5-.17 1-.38 1.5-.63l1.02-.53 3.3 2.1c.06.04.2.1.34.14l1.31-1.32c-.02-.1-.07-.28-.2-.48l-1.96-3.27.5-.99c.24-.47.45-.95.6-1.42l.34-1.05 3.71-.93c.2-.05.37-.13.45-.2zm-14 6.85A6.02 6.02 0 0 1 9.99 16a6.025 6.025 0 0 1 12.05 0c0 3.31-2.7 6-6.03 6zM16 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-share" viewBox="0 0 32 32">
+      <path
+        d="M10.05 10H2v20h26V16.26l2-1.9V30a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V10c0-1.1.9-2 2-2h10.02l.05.05zm14.26 3.08a1 1 0 0 1 0-1.41L27.98 8h-1.02a16.95 16.95 0 0 0-16.69 14H8.26A18.99 18.99 0 0 1 27.94 6l-3.63-3.63A1 1 0 1 1 25.73.96l5.9 6.06-5.9 6.06a1 1 0 0 1-1.42 0z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-tablet" viewBox="0 0 26 32">
+      <path
+        d="M23 2H3a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm0-2a3 3 0 0 1 3 3v26a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zM13 25a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM11 3h4a1 1 0 1 1 0 2h-4a1 1 0 1 1 0-2z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-twitter" viewBox="0 0 612 612">
+      <path
+        d="M612 116.258a250.714 250.714 0 0 1-72.088 19.772c25.929-15.527 45.777-40.155 55.184-69.411-24.322 14.379-51.169 24.82-79.775 30.48-22.907-24.437-55.49-39.658-91.63-39.658-69.334 0-125.551 56.217-125.551 125.513 0 9.828 1.109 19.427 3.251 28.606-104.326-5.24-196.835-55.223-258.75-131.174-10.823 18.51-16.98 40.078-16.98 63.101 0 43.559 22.181 81.993 55.835 104.479a125.556 125.556 0 0 1-56.867-15.756v1.568c0 60.806 43.291 111.554 100.693 123.104-10.517 2.83-21.607 4.398-33.08 4.398-8.107 0-15.947-.803-23.634-2.333 15.985 49.907 62.336 86.199 117.253 87.194-42.947 33.654-97.099 53.655-155.916 53.655-10.134 0-20.116-.612-29.944-1.721 55.567 35.681 121.536 56.485 192.438 56.485 230.948 0 357.188-191.291 357.188-357.188l-.421-16.253c24.666-17.593 46.005-39.697 62.794-64.861z">
+      </path>
+    </symbol>
+
+    <symbol id="svg-youth-bicycle" viewBox="0 0 43.831 43.832">
+      <path
+        d="M36.182 19.639c-.592 0-1.162.074-1.713.201L29.932 9.785a1.496 1.496 0 0 0-1.366-.883h-2.837a1.5 1.5 0 0 0 0 3h1.867l1.254 2.778H16.183l-.84-1.86h.705a1.5 1.5 0 0 0 0-3h-5.506a1.5 1.5 0 1 0 0 3h1.51l1.442 3.197-2.873 4.225a7.585 7.585 0 0 0-2.976-.604C3.43 19.638 0 23.068 0 27.283s3.43 7.646 7.645 7.646c3.701 0 6.797-2.646 7.496-6.146h1.285a4.086 4.086 0 0 0 4.633 2.504 4.096 4.096 0 0 0 3.166-4.842 4.139 4.139 0 0 0-.272-.83l6.727-6.88 1.058 2.342a7.627 7.627 0 0 0-3.196 6.206c0 4.215 3.431 7.646 7.646 7.646 4.216 0 7.646-3.43 7.646-7.646-.01-4.217-3.439-7.644-7.652-7.644zm-18.893 4.79a4.106 4.106 0 0 0-.869 1.354h-1.278a7.64 7.64 0 0 0-2.043-3.85l1.842-2.709 2.348 5.205zm-5.94.078c.289.384.514.812.672 1.274h-1.539l.867-1.274zm-3.703 7.42c-2.561 0-4.645-2.083-4.645-4.646s2.084-4.646 4.645-4.646c.426 0 .828.076 1.221.184l-2.46 3.616a1.496 1.496 0 0 0-.086 1.545c.261.491.771.799 1.325.799h4.375c-.629 1.825-2.34 3.148-4.375 3.148zm14.162-8.411a4.09 4.09 0 0 0-1.777-.307l-2.494-5.529h9.977l-5.706 5.836zm14.374 8.411a4.65 4.65 0 0 1-4.646-4.646c0-1.334.571-2.529 1.478-3.377l1.804 3.992c.25.557.797.885 1.366.885.207 0 .416-.043.614-.135a1.495 1.495 0 0 0 .75-1.982l-1.797-3.983c.146-.014.283-.043.433-.043a4.65 4.65 0 0 1 4.646 4.646 4.659 4.659 0 0 1-4.648 4.643z">
+      </path>
+    </symbol>
+
+  </svg>
+
+
+  <header class="header">
+    <div class="container header__container js-nav-search-container">
+
+      <a href="#" class="header__logo">
+        <svg width="551pt" height="112" viewBox="0 0 551 84" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#06c"
+            d="M48.51 0h1.05c15.82 28.28 32.85 55.9 49.02 84H0v-1.37C16.35 55.2 32.7 27.73 48.51 0m-2.83 33.66C38.7 45.41 31.68 57.12 24.91 69h48.17c-7.6-13.45-15.72-26.6-23.37-39.99-2.6-.51-2.89 3.04-4.03 4.65z" />
+          <g fill="#fff">
+            <path
+              d="M197.15 3.29c1.88-.05 3.75-.05 5.63 0 .06 11.46 0 22.91.02 34.37 6.63-8.72 19.1-12.72 29.11-7.56 6.89 4.02 8.62 12.48 8.74 19.84-.04 11.36-.01 22.71-.02 34.06h-5.61c-.46-13.95 1.06-28.04-1.01-41.88-1.08-3.47-3.09-7.1-6.6-8.59-8.96-4.33-19.8 1.37-24.6 9.3-.01 13.73 0 27.45-.01 41.17h-5.68c.03-26.9-.04-53.81.03-80.71zM332.21 5.03c10.94-.01 21.88-.14 32.82.07 7.83 1.09 16.37 4.07 20.72 11.14 7.76 12.04 3.69 30.6-9.93 36.5-8.7 4.57-18.68 2.97-28.08 3.29-.08 9.32-.01 18.65-.03 27.97H332.2c.01-26.32-.02-52.64.01-78.97m15.52 10.99c-.04 9.65-.04 19.31 0 28.96 7.55-.21 16.13 1.44 22.39-3.86 5.49-5.32 5.47-15.16.68-20.93-6.36-5.55-15.3-4.02-23.07-4.17zM126.01 6.05c20.23-.08 40.47-.09 60.71 0 .01 1.3.01 2.6 0 3.9-9.23.14-18.47-.03-27.7.07-.1 24.66-.02 49.32-.04 73.98h-5.78c-.02-24.66.04-49.31-.03-73.97-9.06-.11-18.11.06-27.16-.08-.02-1.3-.02-2.6 0-3.9zM406.07 31.14c11.76-7.45 30.14-5.44 37.11 7.59 2.38 5.82 4.62 13.55 1.45 19.15-12.17.29-24.37.04-36.55.11.95 4.49 1.33 9.7 5.1 12.88 4.13 3.87 10.26 3.96 15.51 2.95 4.31-.93 7.72-4.81 12.4-3.82 1.36 2.05 3.02 3.87 4.72 5.64-3.38 4.24-8.16 6.9-13.32 8.36h-19.27c-22.18-6.22-25.79-40.6-7.15-52.86m2.6 18.83c8.24.05 16.47.04 24.7.01 1.15-6.85-4.69-12.81-11.34-13.01-7.11-.31-13.4 5.94-13.36 13zM456.87 35.75c7.84-7.71 19.92-10.34 30.48-8.05 9.02 2.2 14.43 11.35 14.45 20.25.01 12.02 0 24.03 0 36.05h-9.34c-1.75-1.45-2.54-3.52-2.91-5.71-3.28 1.89-6.26 4.29-9.8 5.71h-16.67c-9.2-3.46-12.16-17.05-4.79-23.72 7.99-7.1 19.47-8.43 29.76-8.31.3-4.37.01-9.5-3.28-12.73-6.14-3.66-13.32-.66-18.83 2.73-4.53 2.82-7.32-2.97-9.07-6.22M468 66.32c-.55 2.97-.4 6.51 2.23 8.48 6.21 3.05 13.54-.33 17.81-5.14.09-3.21.05-6.42.02-9.63-6.91.26-15.32.36-20.06 6.29zM527.93 36.96c4.43-7.87 14.52-13 23.07-8.31v2.54c-1.37 3.11-1.22 6.6-2.53 9.73-2.92.46-5.54-1.4-8.45-.95-5.21.28-9.25 4.6-11.2 9.14-.26 11.62-.04 23.26-.11 34.89h-14.34c0-18.65-.01-37.3 0-55.95 3.74.02 7.52-.34 11.23.21 2.14 2.24 1.16 5.93 2.33 8.7zM255.4 41.36c5.73-14.41 27.68-18.37 37.85-6.6 5.03 4.89 6.09 12.46 5.59 19.15-13.64.24-27.29-.02-40.93.13.51 7.85 1.22 16.96 7.74 22.37 7.89 6.93 20.16 5.32 28.1-.69 1.62-1.65 3.58-.14 4.46 1.45-2.6 3.54-6.79 5.07-10.63 6.83h-18.33c-16.69-5.92-20.49-28-13.85-42.64m3.21 9.62c11.81.03 23.62.04 35.42-.01-.02-7.82-4.35-16.91-12.81-18.35-11.26-3.38-22.97 6.89-22.61 18.36z" />
+          </g>
+        </svg>
+      </a>
+
+      <nav class="nav js-nav">
+
+        <a href="#" class="nav__item">Home</a>
+        <a href="#" class="nav__item is-active">Pages</a>
+        <a href="#" class="nav__item">Shortcodes</a>
+        <a href="#" class="nav__item">Portfolio</a>
+        <a href="#" class="nav__item">Blog</a>
+        <a href="#" class="nav__item">Contact</a>
+
+        <button class="nav__close js-nav-close">
+          <svg class="u-svg-icon">
+            <use xlink:href="#svg-close"></use>
+          </svg>
+        </button>
+
+      </nav>
+
+      <button class="header__nav-toggler js-nav-open">
+        <span></span>
+      </button>
+
+      <div class="header__search search-form js-nav-search">
+
+        <form class="search-form__form">
+          <svg class="u-svg-icon search-form__search-icon">
+            <use xlink:href="#svg-search-thin"></use>
+          </svg>
+
+          <input type="text" class="search-form__input js-nav-seacrh-input" name="search" placeholder="Search..." autofocus>
+        </form>
+
+        <div class="search-form__switch">
+          <button class="search-form__open js-nav-search-open">
+            <svg class="u-svg-icon">
+              <use xlink:href="#svg-search"></use>
+            </svg>
+          </button>
+
+          <button class="search-form__close js-nav-search-close">
+            <svg class="u-svg-icon">
+              <use xlink:href="#svg-close"></use>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <div class="hero">
+    <img src="assets/img/hero/background.jpg" alt="" class="u-parallax js-parallax">
+
+    <div class="hero__container">
+
+      <h1 class="hero__heading">
+        <span class="hero__heading-small">Start your Business Now</span> With The Pear Kit
+      </h1>
+
+      <a href="#" class="hero__action u-action">
+        <span>Get Started</span>
+
+        <svg class="u-svg-icon">
+          <use xlink:href="#svg-action"></use>
+        </svg>
+      </a>
+
+    </div>
+
+    <div class="hero__slider js-hero-slider">
+      <img src="assets/img/hero/pic01.jpg" alt="" data-object-fit="cover">
+      <img src="assets/img/hero/pic04.jpg" alt="" data-object-fit="cover">
+      <img src="assets/img/hero/pic02.jpg" alt="" data-object-fit="cover">
+      <img src="assets/img/hero/pic03.jpg" alt="" data-object-fit="cover">
+      <img src="assets/img/hero/pic05.jpg" alt="" data-object-fit="cover">
+      <img src="assets/img/hero/pic06.jpg" alt="" data-object-fit="cover">
+    </div>
+  </div>
+
+  <main>
+
+    <div class="features">
+      <div class="container">
+
+        <div class="section-header features__header animation is-fade-in-up">
+          <h2 class="section-header__title">The <b>Pear</b> Theme Features</h2>
+        </div>
+
+        <div class="features__items">
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="0">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-rocket"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Modern Design</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="100ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-layers"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Page Builder</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="200ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-globe"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">100% Translatable</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="300ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-tablet"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Ultra Responsive</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="0ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-share"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Free Updates</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="100ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-help"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Customers Support</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="200ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-settings"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Fully Customizable</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+          <div class="features__item animation is-fade-in-up" data-wow-delay="300ms">
+            <div class="features__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-diamond"></use>
+              </svg>
+            </div>
+
+            <div class="features__title">Premium Quality</div>
+            <div class="features__sub-title">It is a paradisematic country in which roasted parts of</div>
+          </div>
+
+        </div>
+
+        <div class="features__footer animation is-fade-in-up" data-wow-delay="400ms">
+          <a href="#" class="u-action">
+            <span>Show Video Presentation</span>
+
+            <svg class="u-svg-icon">
+              <use xlink:href="#svg-action"></use>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="about__container">
+
+        <div class="section-header about__content animation is-fade-in-up">
+          <h2 class="section-header__title">Best Clean &amp; Style Theme</h2>
+
+          <p class="section-header__sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id est sed lacus volutpat lobortis ac
+            non mauris. Morbi id mi vitae sem aliquam luctus.</p>
+
+          <a href="#" class="u-action about__action">
+            <span>Show Demo Pages</span>
+
+            <svg class="u-svg-icon">
+              <use xlink:href="#svg-action"></use>
+            </svg>
+          </a>
+        </div>
+
+        <img src="assets/img/about/finder.jpg" alt="" class="about__image about__image-finder animation is-fade-in-left" data-wow-delay="200ms">
+        <img src="assets/img/about/ipad.jpg" alt="" class="about__image about__image-ipad animation is-fade-in-left">
+
+      </div>
+    </div>
+
+    <div class="presentation">
+      <img src="assets/img/presentation/background.jpg" alt="" class="u-parallax js-parallax">
+
+      <a href="https://vimeo.com/192147860" class="presentation__play js-popup-video">
+        <svg class="u-svg-icon">
+          <use xlink:href="#svg-play"></use>
+        </svg>
+      </a>
+
+      <div class="presentation__text">Creative Video Presentation</div>
+    </div>
+
+    <div class="demo">
+
+      <div class="section-header">
+        <h2 class="section-header__title animation is-fade-in-up">Amazing &amp; Stylish Demo Pages</h2>
+
+        <p class="section-header__sub-title demo__sub-title animation is-fade-in-up" data-wow-delay="200ms">You can use these beautiful templates for
+          their projects or easily create new ones.</p>
+
+        <a href="#" class="u-action about__action animation is-fade-in-up" data-wow-delay="400ms">
+          <span>Show more</span>
+
+          <svg class="u-svg-icon">
+            <use xlink:href="#svg-action"></use>
+          </svg>
+        </a>
+      </div>
+
+      <div class="demo__images-container animation is-fade-in-up" data-wow-delay="500ms">
+
+        <div class="demo__images">
+          <img src="assets/img/demo/pic-01.jpg" alt="" class="demo__image demo__image-prev-2">
+          <img src="assets/img/demo/pic-02.jpg" alt="" class="demo__image demo__image-prev-1">
+          <img src="assets/img/demo/macbook.png" alt="" class="demo__image demo__image-main">
+          <img src="assets/img/demo/pic-03.jpg" alt="" class="demo__image demo__image-next-1">
+          <img src="assets/img/demo/pic-04.jpg" alt="" class="demo__image demo__image-next-2">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="version">
+      <div class="container">
+
+        <div class="section-header animation is-fade-in-up">
+          <h2 class="section-header__title">Choose Your Version</h2>
+        </div>
+
+        <div class="version__list">
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="0">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-01.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Night Bar</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="100ms">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-02.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Travel</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="200ms">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-03.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Fitness</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="0">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-04.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Construction</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="100ms">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-05.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Restaurant</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="version__item animation is-fade-in-up" data-wow-delay="200ms">
+            <a href="#" class="version__image-container">
+              <img src="assets/img/version/pic-06.jpg" alt="" class="version__image" data-object-fit="cover">
+            </a>
+
+            <div class="version__link">
+              <a href="#" class="u-action">
+                <span>Medic</span>
+
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-action"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="discount">
+      <img src="assets/img/discount/background.jpg" alt="" class="u-parallax js-parallax">
+
+      <div class="section-header animation is-fade-in-up">
+        <h2 class="section-header__title">Buy now and get a Discount</h2>
+
+        <a href="#" class="u-action">
+          <span>Go to Info Page</span>
+
+          <svg class="u-svg-icon">
+            <use xlink:href="#svg-action"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="resp">
+      <div class="container">
+
+        <div class="resp__row">
+
+          <div class="resp__images animation is-fade-in-up" data-wow-delay="300ms">
+            <img src="assets/img/resp/pic-01.png" alt="">
+            <img src="assets/img/resp/pic-02.png" alt="">
+          </div>
+
+          <div class="resp__text section-header animation is-fade-in-up">
+            <div class="section-header__icon">
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-tablet"></use>
+              </svg>
+            </div>
+
+            <h2 class="section-header__title">Fully Responsive</h2>
+            <p class="section-header__sub-title">You can use these beautiful templates for their projects or easily create new ones.</p>
+
+            <a href="#" class="u-action resp__action">
+              <span>Buy Now</span>
+
+              <svg class="u-svg-icon">
+                <use xlink:href="#svg-action"></use>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="reviews">
+      <div class="container">
+
+        <div class="section-header reviews__header">
+          <h2 class="section-header__title animation is-fade-in-up">Our Clients Say</h2>
+          <p class="section-header__sub-title animation is-fade-in-up" data-wow-delay="200ms">You can use these beautiful templates for their projects
+            or easily create new ones.</p>
+        </div>
+
+        <div class="reviews__container animation is-fade-in-up" data-wow-delay="400ms">
+
+          <div class="reviews__quote">
+            <svg class="u-svg-icon">
+              <use xlink:href="#svg-quote"></use>
+            </svg>
+          </div>
+
+          <div class="reviews__slider js-reviews-slider">
+
+            <div class="reviews__item">
+              <div class="reviews__review">Very beautiful and stylish women, the best solution for the business. you can realize all your ideas and
+                all this will look great!</div>
+              <div class="reviews__author"><b>Amanda Pfayfer</b>, Designer</div>
+            </div>
+
+            <div class="reviews__item">
+              <div class="reviews__review">Very beautiful and stylish women, the best solution for the business. you can realize all your ideas and
+                all this will look great!</div>
+              <div class="reviews__author"><b>Amanda Pfayfer</b>, Designer</div>
+            </div>
+
+            <div class="reviews__item">
+              <div class="reviews__review">Very beautiful and stylish women, the best solution for the business. you can realize all your ideas and
+                all this will look great!</div>
+              <div class="reviews__author"><b>Amanda Pfayfer</b>, Designer</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="reviews__dots js-reviews-dots"></div>
+
+      </div>
+    </div>
+
+    <div class="clients">
+      <div class="container clients__container">
+
+        <div class="clients__list animation is-fade-in-up">
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-01.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-02.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-03.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-04.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-05.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-06.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-07.svg" alt="">
+          </div>
+
+          <div class="clients__item">
+            <img src="assets/img/clients/pic-08.svg" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="container">
+
+        <div class="stats__list">
+
+          <div class="stats__item">
+            <div class="stats__caption animation is-fade-in-up">Clients</div>
+            <div class="stats__num animation is-fade-in-up" data-wow-delay="100ms">1359</div>
+          </div>
+
+          <div class="stats__item">
+            <div class="stats__caption animation is-fade-in-up">Projects</div>
+            <div class="stats__num animation is-fade-in-up" data-wow-delay="100ms">847</div>
+          </div>
+
+          <div class="stats__item">
+            <div class="stats__caption animation is-fade-in-up">Followers</div>
+            <div class="stats__num animation is-fade-in-up" data-wow-delay="100ms">4026</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="buy">
+      <img src="assets/img/buy/background.jpg" alt="" class="u-parallax js-parallax">
+
+      <div class="section-header buy__container">
+        <h2 class="section-header__title buy__title animation is-fade-in-up">Did you like this theme ?</h2>
+
+        <p class="section-header__sub-title animation is-fade-in-up" data-wow-delay="200ms">You can use these beautiful templates for their projects
+          or easily create new ones.</p>
+
+        <a href="#" class="u-action buy__action animation is-fade-in-up" data-wow-delay="400ms">
+          <span>Buy Theme</span>
+
+          <svg class="u-svg-icon">
+            <use xlink:href="#svg-action"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer__container">
+
+        <div class="footer__row">
+
+          <div class="footer__col animation is-fade-in-up">
+            <h3 class="footer__heading">Home Pages</h3>
+
+            <ul class="footer__list">
+              <li><a href="#">Default</a></li>
+              <li><a href="#">Business</a></li>
+              <li><a href="#">Creative</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col animation is-fade-in-up" data-wow-delay="100ms">
+            <h3 class="footer__heading">Pages</h3>
+
+            <ul class="footer__list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Service</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Case</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Jobs</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col animation is-fade-in-up" data-wow-delay="200ms">
+            <h3 class="footer__heading">E-Commerce</h3>
+
+            <ul class="footer__list">
+              <li><a href="#">Gatalog</a></li>
+              <li><a href="#">Product page 1</a></li>
+              <li><a href="#">Product page 2</a></li>
+              <li><a href="#">Cart</a></li>
+              <li><a href="#">Chekout</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col animation is-fade-in-up" data-wow-delay="300ms">
+            <h3 class="footer__heading">Portfolio</h3>
+
+            <ul class="footer__list">
+              <li><a href="#">Creative style</a></li>
+              <li><a href="#">Default</a></li>
+              <li><a href="#">Classic version</a></li>
+              <li><a href="#">Masonry</a></li>
+              <li><a href="#">Parallax</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__contacts-col animation is-fade-in-up" data-wow-delay="400ms">
+            <h3 class="footer__heading">Contacts</h3>
+
+            <div class="footer__plain">
+              <p>USA 125 985 Street Red Character House 4 Office 35</p>
+              <p>+9 (800) 888 0000 248</p>
+              <p><a href="#">info@thepear.com</a></p>
+            </div>
+
+            <div class="footer__socials">
+
+              <a href="#" class="footer__social">
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-twitter"></use>
+                </svg>
+              </a>
+
+              <a href="#" class="footer__social">
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-facebook"></use>
+                </svg>
+              </a>
+
+              <a href="#" class="footer__social">
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-linkedin"></use>
+                </svg>
+              </a>
+
+              <a href="#" class="footer__social">
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-pinterest"></use>
+                </svg>
+              </a>
+
+              <a href="#" class="footer__social">
+                <svg class="u-svg-icon">
+                  <use xlink:href="#svg-flickr"></use>
+                </svg>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer__bottom animation is-fade-in-up" data-wow-delay="600ms">
+          <div class="footer__copy">Copyright &copy; 2015 The Pear. All rights reserved.</div>
+
+          <ul class="footer__bottom-list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

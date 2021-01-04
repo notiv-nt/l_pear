@@ -1,0 +1,79 @@
+.about
+  position relative
+  border-top 1px solid #e1e1e1
+  overflow hidden
+  z-index 1
+  background-color white
+
+  _(padding, {
+    xs: 50px 0
+    md: 140px 0
+    xl: 230px 0 225px
+    hg: 260px 0 275px
+  })
+
+  &__content
+    _(max-width, {
+      xs: 100%
+      md: 470px
+      xl: 560px
+      hg: 630px
+    })
+
+  &__container
+    max-width 84%
+    margin-left auto
+    margin-right auto
+    padding-left $grid-spacing
+    padding-right $grid-spacing
+
+    _(max-width, {
+      xs: 100%
+      lg: 95%
+      hg: 84%
+    })
+
+  &__image
+    position absolute
+    bottom 0
+    display block
+    width auto
+
+    &-ipad
+      right -20px
+
+      _initial-size = 646px
+
+      _(height, {
+        sm: 'calc(%s - 60%)' % _initial-size
+        lg: 'calc(%s - 50%)' % _initial-size
+        xl: 'calc(%s - 20%)' % _initial-size
+        hg: auto
+      })
+
+      +media(to md)
+        display none
+
+    &-finder
+      right 500px
+
+      +media(to lg)
+        display none
+
+      _initial-size = 450px
+
+      _(height, {
+        sm: 'calc(%s - 30%)' % _initial-size
+        lg: 'calc(%s - 40%)' % _initial-size
+        xl: 'calc(%s - 20%)' % _initial-size
+        hg: auto
+      })
+
+      _(right, {
+        sm: 270px
+        xl: 380px
+        hg: 500px
+      })
+
+  &__action
+    color $main-color

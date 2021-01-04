@@ -1,0 +1,125 @@
+@import 'functions'
+
+em(_font-size, _relative = $font-size)
+  if _relative
+    return round(unit(_font-size / _relative, 'em'), 2)
+
+
+rem(_font-size)
+  return round(unit(_font-size / $font-size, 'rem'), 2)
+
+
+tr(_props...)
+  $str = ''
+
+  for prop in _props
+
+    if prop == _props[len(_props)-1]
+      $str += _buildTransition(prop)
+
+    else
+      $str += _buildTransition(prop) + ', '
+
+  transition unquote($str)
+
+
+word-wrap()
+  white-space normal
+  word-wrap break-word
+  word-break break-word
+
+  unless @max-width
+    max-width 100%
+
+
+// +media(from X to Y)
+// +media(from\to X)
+media(_dir)
+
+  if length(_dir) == 2
+    _res = _dir[1]
+    _size = $media[_res]['from']
+    _pos = _dir[0]
+
+    if _pos == 'from'
+      @media (min-width: _size)
+        {block}
+
+    else if _pos == 'to'
+      @media (max-width: _size - 1)
+        {block}
+
+  else
+    _from = $media[ _dir[1] ]['from']
+    _to = $media[ _dir[3] ]['from']
+
+    @media (min-width: _from) and (max-width: _to - 1)
+      {block}
+
+
+// _(height, { xs: 100px, sm: 200px }, 'calc(100vh - %)')
+_(_prop, _values, _template = null, _dir = from)
+  for _med, _size in _values
+    +media(_dir _med)
+      if _template
+        {_prop}: _template % _size
+
+      else
+        {_prop}: _size
+
+
+// crop text by css (-webkit- ellipsis only)
+crop-text(_lines, _fs = $font-size, _lh = $line-height, _fixed-height = false)
+  _height = ceil(_lines * _fs * _lh)
+
+  overflow hidden
+  text-overflow ellipsis
+  display -webkit-box
+  -webkit-line-clamp _lines
+  -webkit-box-orient vertical
+
+  if _lines == 1
+    white-space nowrap
+
+  if _fixed-height
+    height @max-height
+
+  else
+    max-height _height
+
+
+clearfix()
+  zoom 1
+
+  &::before, &::after
+    content '.'
+    display block
+    height 0
+    overflow hidden
+
+  &::after
+    clear both
+
+
+svg-icon()
+  width 1em
+  height @width
+  fill currentColor
+
+  display inline-block
+  vertical-align middle
+
+
+img-fit()
+  object-fit cover
+  object-position center
+
+
+button-reset()
+  display inline-block
+  vertical-align middle
+  border none
+  font inherit
+  padding 0
+  background-color transparent
+  outline none

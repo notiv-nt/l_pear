@@ -1,0 +1,67 @@
+.resp
+  background-color white
+  position relative
+  z-index 1
+  padding 97px 0
+
+  +media(to md)
+    padding 50px 0
+
+  &__row
+    align-items center
+
+    grid-row({
+      xs: 1,
+      md: 2
+    })
+
+    +media(to md)
+      flex-wrap wrap
+
+  &__images
+    display flex
+    align-items flex-start
+    justify-content center
+
+    +media(to md)
+      margin-bottom 30px
+
+    img
+      position relative
+      width auto
+
+    img:nth-of-type(1)
+      transform translate(20px, 80px)
+
+      +media(to lg)
+        transform translate(-20px, 80px)
+
+      +media(to md)
+        transform translate(10px, 20px)
+        width 45%
+
+      _(height, {
+        xs: auto
+        md: 440px
+        lg: 540px
+        xl: 600px
+        hg: 660px
+      })
+
+    img:nth-of-type(2)
+      transform translate(-18px, 0)
+
+      +media(to lg)
+        transform translate(-58px, 0)
+
+      +media(to md)
+        transform translate(-10px, 0)
+        width 50%
+
+      _(height, {
+        xs: auto
+        md: 420px
+        lg: 520px
+        xl: 580px
+        hg: 642px
+      })

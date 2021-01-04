@@ -1,0 +1,83 @@
+.features
+  position relative
+  background-color white
+  z-index 1
+  margin-top 100vh
+
+  _(padding, {
+    xs: 50px 0
+    lg: 84px 0
+  })
+
+  &__header
+    _(margin-bottom, {
+      xs: 30px
+      sm: 40px
+      lg: 60px
+    })
+
+  &__items
+    justify-content center
+
+    grid-row({
+      xs: 1
+      sm: 2
+      md: 3
+      lg: 4
+    })
+
+  &__item
+    _(margin-bottom, {
+      xs: 30px
+      sm: 40px
+      lg: 60px
+    })
+
+    +media(to sm)
+      position relative
+      padding-left 40px
+
+    +media(from sm)
+      text-align center
+
+    &:hover ^[0]__icon
+      color $main-color
+
+  &__icon
+    color #ccc
+    margin-bottom 16px
+
+    +media(to sm)
+      position absolute
+      left 0
+      top 0
+
+    tr(color)
+
+    .u-svg-icon
+      width 33px
+      height @width
+
+      +media(to sm)
+        width 27px
+        height @width
+
+  &__title
+    line-height 1
+
+    _(margin-bottom, {
+      xs: 5px
+      sm: 15px
+    })
+
+  &__sub-title
+    font-size 16px
+
+  &__footer
+    text-align center
+    color $main-color
+
+    _(padding-top, {
+      xs: 16px
+      md: 26px
+    })

@@ -1,0 +1,73 @@
+toggle(_size = 35px, _color = #000, _bg-color = #fff, _border = 1px solid black, _thickness = 1px)
+  background _bg-color
+  border _border
+  float right
+  width _size
+  height _size
+  // nope, sorry (beta page on mobile)
+  // margin 0
+  display none
+  border-radius 4px
+  position relative
+
+  &:focus
+    outline none
+
+  span
+    // position relative
+    display block
+
+    &::after, &::before
+      content ''
+      position absolute
+      left 0
+
+    &:after
+      top 10%
+
+    &:before
+      bottom 10%
+
+  span
+  span:after
+  span:before
+    width 100%
+    height _thickness
+    background-color _color
+    transition all 0.3s
+    backface-visibility hidden
+    border-radius 2px
+
+  /* on activation */
+  &.is-active span
+  &.is-open span
+    background-color transparent
+
+  &.is-active span:before
+  &.is-open span:before
+    transform rotate(45deg) translate(-5px,  -5px)
+
+  &.is-active span:after
+  &.is-open span:after
+    transform rotate(-45deg) translate(-6px, 6px)
+
+
+bg-parallax()
+  // transform-style inherit
+
+  // &::before
+  //   content ''
+  //   position absolute
+  //   // idk why
+  //   left -20px
+  //   right 0
+  //   top 0
+  //   bottom 0
+  //   z-index -1
+  //   transform translateZ(-1px) scale(3)
+  //   background-position center
+  //   background-repeat no-repeat
+  //   background-size 70%
+
+  //   {block}
+

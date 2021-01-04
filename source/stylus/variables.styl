@@ -1,0 +1,57 @@
+// required
+$font-size = 24px
+$line-height = 1.45
+$font = 300 $font-size\/$line-height 'Lato', sans-serif
+
+$transition-duration = 450ms
+$transition-function = cubic-bezier(.5, 0, .2, 1)
+$transition = '%s %s' % ($transition-duration $transition-function)
+
+// $debug = true
+
+$grid-columns = 12
+$grid-spacing = 15px
+
+$media = {
+  xs: {
+    from: 0
+    to: 575px
+    grid_max_width: none
+  },
+
+  sm: {
+    from: 576px
+    to: 767px
+    grid_max_width: 540px
+  },
+
+  md: {
+    from: 768px
+    to: 991px
+    grid_max_width: 720px
+  },
+
+  lg: {
+    from: 992px
+    to: 1199px
+    grid_max_width: 960px
+  },
+
+  xl: {
+    from: 1200px
+    to: 1799px
+    grid_max_width: 1200px
+  }
+
+  hg: {
+    from: 1800px
+    // grid_max_width: 1600px
+  }
+};
+
+$input-placeholder-color = #999
+$main-color = #06c
+
+$text-color = #333
+
+$z-index-header = 10

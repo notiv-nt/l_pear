@@ -1,0 +1,53 @@
+grid-row(_widths = null, _rest = {})
+  // for grid-row(4)
+  // alias for {xs: 4}
+  if typeof(_widths) == 'unit'
+    _widths = {
+      xs: _widths
+    }
+
+  if _rest.gutter == null
+    _rest.gutter = $grid-spacing
+
+  display flex
+  flex-wrap wrap
+
+  if _rest.gutter > 0
+    margin-left: _rest.gutter * -1
+    margin-right @margin-left
+
+    > *
+      margin-left: _rest.gutter
+      margin-right @margin-left
+
+  if _widths
+    _media-list = {}
+
+    for _width, _count in _widths
+      if _rest.gutter == 0
+        _media-list[_width] = _count
+
+      else
+        _media-list[_width] = _count (_rest.gutter * 2)
+
+    > *
+      if _rest.gutter == 0
+        _(width, _media-list, 'calc(100% / %s)')
+
+      else
+        _(width, _media-list, 'calc(100% / %s - %s)')
+
+
+grid-col(_widths = {}, _rest = {})
+  if !_rest.columns
+    _rest.columns = $grid-columns
+
+  if _rest.gutter == null
+    _rest.gutter = $grid-spacing
+
+  _media-list = {}
+
+  for _width, count in _widths
+    _media-list[_width] = (_rest.columns) count (_rest.gutter * 2)
+
+  _(width, _media-list, 'calc(100% / %s * %s - %s)')

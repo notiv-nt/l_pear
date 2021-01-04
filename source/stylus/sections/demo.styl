@@ -1,0 +1,127 @@
+.demo
+  padding 87px $grid-spacing 0
+  background-color white
+  position relative
+  z-index 1
+
+  +media(to md)
+    padding-top 50px
+
+  &__action
+    color $main-color
+
+  &__sub-title
+    max-width 600px
+    margin-left auto
+    margin-right auto
+
+  &__images
+    margin-left auto
+    margin-right auto
+    padding-top 83px
+    position relative
+
+    _(max-width, {
+      xs: none
+      md: 700px
+      lg: 800px
+      xl: 990px
+      hg: 1180px
+    })
+
+    +media(to md)
+      padding-top 50px
+
+    &-container
+      overflow hidden
+
+  &__image
+    &-main
+      display block
+      height auto
+      width 100%
+      position relative
+      z-index 3
+
+      +media(to md)
+        width 114%
+        margin-left -7%
+
+    &-prev-1
+    &-next-1
+      z-index 2
+
+      +media(from md)
+        top 27%
+        width 210px - 28%
+        height 350px - 28%
+
+      +media(from lg)
+        top 27%
+        width 210px - 18%
+        height 350px - 18%
+
+      +media(from xl)
+        top 27%
+        width 210px - 8%
+        height 350px - 8%
+
+      +media(from hg)
+        top 27%
+        width 210px
+        height 350px
+
+    &-prev-2
+    &-next-2
+      z-index 1
+
+      +media(from md)
+        top 29%
+        width 210px - 28%
+        height 310px - 28%
+
+      +media(from lg)
+        top 29%
+        width 210px - 18%
+        height 310px - 18%
+
+      +media(from xl)
+        top 29%
+        width 210px - 8%
+        height 310px - 8%
+
+      +media(from hg)
+        top 29%
+        width 210px
+        height 310px
+
+    &-prev-1
+      left -42px
+
+      _(left, {
+        xl: -26px
+        hg: -42px
+      })
+
+    &-prev-2
+      left -192px
+
+    &-next-1
+      right -27px
+
+      _(right, {
+        xl: -17px
+        hg: -27px
+      })
+
+    &-next-2
+      right -177px
+
+    &-prev-1
+    &-prev-2
+    &-next-1
+    &-next-2
+      position absolute
+
+      +media(to md)
+        display none

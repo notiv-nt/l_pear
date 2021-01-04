@@ -1,0 +1,142 @@
+.footer
+  position relative
+  background-color #f2f2f2
+  font-size 14px
+  padding-top 45px
+
+  &__row
+    display flex
+    flex-wrap wrap
+    margin-bottom 40px
+
+    +media(to md)
+      margin-bottom 20px
+
+  &__col
+    width 200px
+
+    _(width, {
+      xs: 50%
+      sm: 25%
+      md: 120px
+      lg: 150px
+      xl: 200px
+    })
+
+    +media(to sm)
+      margin-bottom 20px
+
+  &__contacts-col
+    margin-left auto
+
+    +media(to md)
+      margin-right auto
+      margin-top 20px
+
+    _(width, {
+      md: 210px
+      lg: 240px
+    })
+
+  &__plain
+    p
+      margin 0 0 10px
+
+    a
+      color $main-color
+
+      &:hover
+        text-decoration underline
+
+  &__heading
+    font inherit
+    font-weight 500
+    color #000
+    margin 0 0 5px
+
+  &__list
+    font inherit
+    font-family 'Lato Light'
+    font-weight 300
+    margin 0
+    padding 0
+    list-style none
+
+    li
+      margin 0
+      padding 0
+
+    a
+      display inline-block
+      padding 2px 0
+
+      tr(color)
+
+      &:hover
+        text-decoration underline
+        color black
+
+  &__socials
+    display flex
+    align-items center
+    margin-top 20px
+    justify-content space-between
+
+  &__social
+    color #ccc
+    font-size 18px
+    padding 5px
+    margin-right 24px
+
+    +media(to lg)
+      margin-right 0
+
+    tr(color)
+
+    &:hover
+      color black
+
+  &__bottom
+    border-top 1px solid #e1e1e1
+    padding 23px 0
+    display flex
+    justify-content space-between
+    align-items center
+    font-size 13px
+    color #999
+    flex-wrap wrap
+
+    +media(to md)
+      padding 10px 0
+      justify-content center
+
+  &__copy
+    +media(to md)
+      margin-bottom 6px
+
+  &__bottom-list
+    list-style none
+    margin 0
+    padding 0
+    display inline-flex
+
+    li
+      margin 0 24px 0 0
+      padding 0
+      position relative
+
+      &:not(:last-of-type):after
+        content ''
+        width 2px
+        height @width
+        background-color #333
+        position absolute
+        top 50%
+        right -15px
+
+    a
+      tr(color)
+
+      &:hover
+        color black
+        text-decoration underline

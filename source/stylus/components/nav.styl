@@ -1,0 +1,96 @@
+.nav
+  display flex
+  flex-wrap wrap
+  align-items center
+  font-size 16px
+  align-self center
+  opacity 1
+  margin-right 150px
+  z-index $z-index-header + 1
+
+  tr(opacity, visibility)
+
+  +media(to lg)
+    margin-right 70px
+
+  +media(to md)
+    // display none
+    display flex
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background-color rgba(#000, .9)
+    flex-direction column
+    justify-content center
+    margin-right 0
+    visibility hidden
+    opacity 0
+    z-index $z-index-header + 2
+
+    tr(visibility, opacity)
+
+    for i in 0..6
+      &__item:nth-of-type({i})
+        transition-delay (40ms * i), 0ms, (40ms * i)
+
+    &.is-open
+      visibility visible
+      opacity 1
+
+      & ^[0]__item
+        transform translateY(0)
+
+    &__item
+      transform translateY(20px)
+      padding 10px 0
+      width 100%
+      text-align center
+
+  for i in 6..0
+    &__item:nth-of-type({i})
+      transition-delay (20ms * i), 0ms, (20ms * i)
+
+  &.is-search-open
+    visibility hidden
+    opacity 0
+
+    & ^[0]__item
+      transform translateX(-15px)
+      opacity 0
+
+  &__item
+    padding 17px 38px
+    line-height 1
+    opacity 1
+
+    tr(transform $transition-duration, color 250ms, opacity $transition-duration)
+
+    +media(from md)
+      transform translateX(0)
+
+    +media(to xl)
+      padding 17px 20px
+
+    +media(to lg)
+      padding 17px 14px
+
+    &:hover
+      color $main-color
+
+    &.is-active
+      color #999
+
+  &__close
+    button-reset()
+
+    position absolute
+    top $grid-spacing
+    right @top
+    color inherit
+    width 3em
+    height @width
+
+    +media(from md)
+      display none

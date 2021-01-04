@@ -1,0 +1,77 @@
+.stats
+  position relative
+  z-index 1
+  background-color $main-color
+  padding 100px 0
+
+  _(padding, {
+    xs: 50px 0
+    sm: 60px 0
+    md: 70px 0
+    lg: 85px 0
+    xl: 100px 0
+  })
+
+  &__list
+    display flex
+    align-items center
+
+    +media(to sm)
+      flex-wrap wrap
+
+  &__item
+    color #fff
+
+    +media(to sm)
+      width 100%
+      text-align center
+
+      &:not(:last-of-type)
+        margin-bottom 30px
+
+    &:not(:last-of-type)
+      padding-right 100px
+
+      +media(to xl)
+        padding-right 50px
+
+      +media(to sm)
+        padding-right 0
+
+    &:not(:first-of-type)
+      padding-left 70px
+
+      +media(to xl)
+        padding-left 40px
+
+      +media(to sm)
+        padding-left 0
+
+    &:last-of-type
+      margin-left 54px
+
+      +media(to lg)
+        margin-left 0
+
+    +media(from sm)
+      & + &
+        border-left 1px solid #408cd9
+
+  &__caption
+    font-size 16px
+    line-height 1
+
+    +media(to lg)
+      font-size 14px
+
+  &__num
+    line-height 1
+    font-size 100px
+    font-weight 100
+
+    _(font-size, {
+      xs: 60px
+      sm: 50px
+      md: 70px
+      lg: 100px
+    })

@@ -1,0 +1,46 @@
+.buy
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  background-color rgba(51, 51, 51, .4)
+  position relative
+  overflow hidden
+  color #Fff
+  z-index 1
+
+  _(height, {
+    xs: 400px
+    sm: 500px
+    md: 580px
+    lg: 620px
+    xl: 700px
+    hg: 790px
+  })
+
+  &__action
+    color inherit
+
+    _(font-size, {
+      xs: 24px
+      sm: 26px
+      md: 28px
+      lg: 30px
+      xl: 32px
+      hg: 34px
+    })
+
+  &__title
+    _(font-size, {
+      xs: 30px
+      sm: 38px
+      md: 44px
+      lg: 56px
+      xl: 62px
+      hg: 70px
+    })
+
+  &__container
+    max-width 760px
+    margin-left auto
+    margin-right auto

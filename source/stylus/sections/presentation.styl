@@ -1,0 +1,42 @@
+.presentation
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  position relative
+  overflow hidden
+  z-index 1
+
+  _(height, {
+    xs: 400px
+    sm: 500px
+    md: 600px
+    lg: 700px
+    xl: 800px
+    hg: 900px
+  })
+
+  &__play
+    button-reset()
+
+    width 95px
+    height @width
+    background-color white
+    border-radius 50%
+    color $main-color
+    display inline-flex
+    align-items center
+    justify-content center
+    cursor pointer
+    font-size 30px
+
+    tr(background-color, color)
+
+    &:hover
+      background-color $main-color
+      color #fff
+
+  &__text
+    color white
+    font-size 24px
+    margin-top 13px

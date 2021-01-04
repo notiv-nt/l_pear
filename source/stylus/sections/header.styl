@@ -1,0 +1,66 @@
+.header
+  background-color rgba(#000, .85)
+  color white
+  font-size 16px
+  padding 0
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index $z-index-header
+  transform translateY(-100%)
+
+  tr(transform)
+
+  .is-loaded &
+    transform none
+
+  &__container
+    align-items center
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+    position relative
+    min-height 50px
+
+  &__logo
+    align-items center
+    line-height 1
+    display inline-block
+    width auto
+    height 27px
+    padding 5px 0
+
+    > svg
+      height 17px
+      width 112px
+
+    +media(to md)
+      opacity 1
+      transform translateX(0)
+
+      tr(opacity, transform)
+
+      .js-nav-search-container.is-open &
+        opacity 0
+        transform translateX(-10px)
+
+  &__nav-toggler
+    toggle(21px, white, transparent, none)
+
+    z-index $z-index-header + 1
+    margin-right 40px
+    padding 0
+    cursor pointer
+    display none
+
+    +media(to md)
+      display block
+      opacity 1
+      transform translateX(0)
+
+      tr(opacity, transform)
+
+      .js-nav-search-container.is-open &
+        opacity 0
+        transform translateX(10px)

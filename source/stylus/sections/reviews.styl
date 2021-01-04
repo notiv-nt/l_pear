@@ -1,0 +1,110 @@
+.reviews
+  background-color #fafafa
+  padding 90px 0
+  position relative
+  z-index 1
+
+  +media(to md)
+    padding 50px 0
+
+  &__header
+    max-width 590px
+    margin-left auto
+    margin-right auto
+    margin-bottom 50px
+
+  &__container
+    box-shadow 0 4px 5px rgba(0, 0, 0, .05)
+    border 1px solid #e1e1e1
+    position relative
+    padding 50px 100px
+    text-align center
+    max-width 970px
+    margin-left auto
+    margin-right auto
+
+    _(padding, {
+      xs: 20px 30px
+      lg: 50px 100px
+    })
+
+  &__quote
+    font-size 23px
+    position absolute
+    top 0
+    left 50%
+    transform translate(-50%, -50%)
+    color $main-color
+    line-height 1
+    padding 0 20px
+    background-color #fafafa
+
+  &__review
+    color #333
+    font-size 34px
+    line-height 1.25
+    margin-bottom 22px
+
+    +media(to lg)
+      font-size 29px
+
+    +media(to md)
+      font-size 24px
+
+    +media(to sm)
+      font-size 20px
+
+  &__author
+    font-size 16px
+    color #999
+
+    +media(to lg)
+      font-size 14px
+
+    +media(to md)
+      font-size 12px
+
+    b
+      font-weight 700
+      color $text-color
+
+  &__slider
+    .owl-stage
+      display flex
+
+    .owl-stage-outer
+      overflow hidden
+
+    .owl-nav
+      display none
+
+  &__dots
+    text-align center
+
+    +media(from md)
+      margin-top 30px
+
+    .owl-dot
+      button-reset()
+
+      padding 10px
+      line-height 1
+      cursor pointer
+
+      &:hover span
+        background-color $main-color
+
+      span
+        width 10px
+        height 10px
+        display block
+        background-color #e1e1e1
+        border-radius 50%
+        border 2px solid transparent
+
+        tr(border-color, background-color)
+
+      &.active span
+        border-color $main-color
+        background-color white
+
